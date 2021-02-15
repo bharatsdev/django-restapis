@@ -56,6 +56,7 @@ class HelloApiView(generics.GenericAPIView):
 
 class HelloViewSets(viewsets.ViewSet):
     """Test api viewsets"""
+    serializer_class = serializers.HelloSerializer
 
     def list(self, request):
         """Return a hello method"""
@@ -66,3 +67,33 @@ class HelloViewSets(viewsets.ViewSet):
         ]
 
         return Response({'message': 'Hello world form ViewSets', 'a_viewsets': a_viewsets})
+
+    def create(self, request, pk=None):
+        """Create a hello-world new message"""
+        serializer = self.serializer_class()
+        if serializer.is_valid():
+            name = serializer.validated_data.get('name')
+            message = f'Hello world form View set create method for user :{name}'
+            return Response({'message': message})
+        else:
+            return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+    def retrieve(self, request, pk=None):
+        """Handling getting an object by Id"""
+
+        return Response({'HTTP_METHOD': 'GET'})
+
+    def update(self, request, pk=None):
+        """Handling updating  an object by Id"""
+
+        return Response({'HTTP_METHOD': 'PUT'})
+
+    def partialupdate(self, request, pk=None):
+        """Handling updating  an object by Id"""
+
+        return Response({'HTTP_METHOD': 'PATCH'})
+
+    def destroy(self, request, pk=None):
+        """Handling Removing and object form Backend """
+
+        return Response({'HTTP_METHOD': 'DELETE'})
