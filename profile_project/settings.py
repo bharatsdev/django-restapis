@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework',
     'rest_framework.authtoken',
+
     'profile_api',
 ]
 
@@ -118,7 +119,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'}
+REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+                  'DEFAULT_AUTHENTICATION_CLASSES': [
+                      'rest_framework.authentication.TokenAuthentication',  # <-- And here
+                  ],
+                  }
+
 # STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'profile_api.UserProfile'
 
