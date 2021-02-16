@@ -23,7 +23,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
 class UserLoginApiViews(ObtainAuthToken):
     """Handling creating  user authentication tokens """
-    print(api_settings.DEFAULT_RENDERER_CLASSES)
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
@@ -64,7 +63,6 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
 #         Create hello message with our  name
 #          param2 -- A second parameter
 #         """
-#         print(request.data)
 #         serializer = self.serializer_classes(data=request.data)
 #
 #         if serializer.is_valid():
