@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
 
-schema_view = get_swagger_view(title='Django Rest API')
+schema_view = get_swagger_view(title='Manage Profile')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('profile_api.urls')),

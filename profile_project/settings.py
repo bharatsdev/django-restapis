@@ -24,7 +24,10 @@ SECRET_KEY = 'ze#o-fy$se&u8jjn#=xb^^y%k0*53eew%e*@@1y#812zll%wpp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'localhost'
+]
 
 # Application definition
 
@@ -118,7 +121,6 @@ USE_TZ = True
 REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'}
 # STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'profile_api.UserProfile'
-
 
 STATIC_URL = '/static/'
 
