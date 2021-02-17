@@ -15,14 +15,10 @@ script:
 - docker-compose run --rm  app sh -c "python manage.py test  && flake8  --ignore E501,F811"
 deploy:
   provider: heroku
-  cleanup: true
-  edge: true
-  api_key:
-    secure: "${HEROKU_API_KEY}"
   app: restapis-django-basics
   on:
     repo: everythingisdata/restapis-django-basics
     all_branches: true
 env:
   global:
-    secure: WHw40b5+AdGV9dStqUiqwctJAfi0N7jHTRXv4YD//+IAb7G7wUFCNkYAGVIKq3ynVL3HF1O4S1tuFqcZVXvqO2Phc5Bwc2I9JEpc1y7yl5uwczo1f0PYNPxtvGePAzWj1XnBK/BgNAAilGREZj7CPGtK2K4xBFBz5qqlB2oLDjYzEBrk6AKHlu4ImOAtjP09f2G4VekhyJoRThzyA8qTWmoEBwf/9N/v9Pws0EVhBGcknkJXw2sLSAM/cfrGaHtKkmDXKuy/LQqgC7ln36CVu8NpU/2udeGTtYhgZklvJh0l6Rv81JlYnm13gu3id+ZpnSlPasQcW79/AMgz3qO4FgWXjkGuKaaEEpyNAFMTwGAaM3+OR/0hS/h4TS+W2sx3dPKYMo6sjpsLz1U9wyQEz8wsHyXN5Gfca2ve0yZpVaXs8zFlTxfRorZf7gmHt/o00WpDjW8RnurPBXulSpNJeWdJ07yS7doco8kffPCkinxCJvCfRM6di4Rbel3wE/UTlMVumastwcSQZvxI6q7W37z8SzDUZlh0dIjJVo3jxH9iW0PW+SnDl8OvA5uQTDiNTdEUMGqAeQAhLEz4INCZh5ps2YKCSzaS9PgExjPUF33plqNVsUY26jvZXpSsrdpjFojvivRK+AwlXSUhaiKdQs+7A2d+eoum/4p3UTxMGoA=
+    secure: lOmMy452Fw7gl7vdCVn+yG0VDVC/NG3d7CQHSi+xM3I2S72DCdDYLHKv8bTB0ut3QVl/ZV2e2AakvcfHwfVrhfuwWFKBY1EtYiejC5vl1Dw9AIEhLdxYyCD8ZjeiuSb41vsBZSANnggjG///beGnv8fKKEoLb6IeTPd36h0YlqlXC9dQhGAfeALO1Hv54Om1DHN/9JqQPoVSUyoIAP/VDh+Wa5FMvgR8sTxp7V3cM4McSi7hWZvP7hg4vA7Fq0GcIvT3vba1kpDpFqzgpxGHkYDYi5YELPXGnQbZs8kPvdGRVWfdt9xGR1VAhVDC3bJeZoBDRGtZMb1/Kh9Y7YxiZahdP9YzbofZFHyHgXxNg+BJ4kQaPRPwYX6hcHdSnuzklGDfOH46BNdNWpanSSqaEBE67jB36oC7zP7tvHSdGrAC0WiYj/X3C5SjPrAiMk8jS7ADIOIKO6lgoS4L/L6DqbwATYsfSfeoLq9r8PYc/iwdrmKI/csE2wYjjq8GpVNNzxweyA2W60+1T46ARF364z0G0jBKLOjSZLhiJMVvuGIlLz2dpZbI24A5U+jSzgWGOVV6JH2/A9Y4kxjHYg8GM4KccYtFirm1cYUpjkX4aKjhEQ7YrHoKk5uDshBG5ycgGT+zUtYzCEflIpgDGWd2iB3TNGWZBWI4RvLwUlRcvlI=
