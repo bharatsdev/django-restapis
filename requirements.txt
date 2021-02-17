@@ -6,3 +6,4 @@ gunicorn
 psycopg2-binary
 drf_yasg
 psycopg2-binary
+gunicorn
