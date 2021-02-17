@@ -25,5 +25,5 @@ deploy:
   api_key: ${HEROKU_API_KEY}
   app: django-basics
   on:
-    repo: everythingisdata/djanog-basics
+    repo: everythingisdata/restapis-django-basics
     all_branches: true
