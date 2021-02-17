@@ -67,7 +67,6 @@ WSGI_APPLICATION = 'profileProj.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-print(os.environ.get("DB_HOST"))
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
