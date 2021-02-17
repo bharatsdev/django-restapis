@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath profileProj.wsgi
+web: gunicorn  profileProj.wsgi --log-file -
