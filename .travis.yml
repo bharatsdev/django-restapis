@@ -1,29 +1,27 @@
 language: python
-
 python:
-  - 3.8
+- 3.8
 cache: pip
 notifications:
-  email: ${HEROKU_EMAIL}
-
+  email: "${HEROKU_EMAIL}"
 services:
-  - docker
-
+- docker
 before_install:
-  - pip install docker-compose
-
+- pip install docker-compose
 script:
-  - docker-compose run --rm app sh -c "python manage.py makemigrations profileApi"
-  - docker-compose run --rm app sh -c "python manage.py migrate"
-  - docker-compose run --rm app sh -c "python manage.py showmigrations"
-  - docker-compose run --rm app sh -c "python manage.py test && flake8   --ignore E501,F811 "
-
+- docker-compose run --rm app sh -c "python manage.py makemigrations profileApi"
+- docker-compose run --rm app sh -c "python manage.py migrate"
+- docker-compose run --rm app sh -c "python manage.py showmigrations"
+- docker-compose run --rm app sh -c "python manage.py test && flake8   --ignore E501,F811"
 deploy:
   provider: heroku
   cleanup: true
   edge: true
-  api_key: ${HEROKU_API_KEY}
-  app: django-basics
+  #api_key: "${HEROKU_API_KEY}"
+  app: restapis-django-basics
   on:
     repo: everythingisdata/restapis-django-basics
     all_branches: true
+env:
+  global:
+    secure: Kty/AwDnx39uD/jYou4BrC0u3I0V1V17DygmtMUldXusxxRr8OUl+59bAeB17i+NUO9ICSUr8V0XPkKF3DnCC6Os4eFMOz3UyRwP0jZ2RYy+uAmbzpPm8eHa3erXcqUaFTsp5TjX6EhufGfpeb3DOi3uQnjmgqMPpKjqIE7uFZkKMSej8rWnN5WApUOIZtSbHGDFfd2UnUYNXRN6yrp1j6Nxy6KOMGoiAjAE2ZoI5aApXx5FtjH2X/2lScBi8ap3dq6UdaxaSso2bOJ/Z4n2l8a+ceWufAQUkIDdWbHbWlvoebI2Gca/YzvbwrvfsiIlEybGoA6di5/d/W2Oap4yXj+JKFuQtu+nKOPrszMD/x8m6JXhDjMWMe4haVPYEgy32lb62qLD/IYxY0E7D7NDBuEJLsjWYIZXh6W0v31/PIvCSnL94pPNfs/hhXsYwxKqO8u9Xp4AgYItdKbARSzzvdrxFKbcgH/4N5d48qEbmfks92peH57ex+Ill0PnFXS5CMMe1Rr0C7etdkMX+c/yS+ybvdXGLInWXn8+Uekz/osSPBTJ22mjrrB1nxY4hpjm57L9kWLt+zA9F//asT4fwJ4kFBOXZkYThmdPCUnwLyg+BkQah+pirEUiEKmZ6PUAgLfb1HWPkQ5lPwhRZzGz2kL0e5ewqvnghCk5yAG17N4=
