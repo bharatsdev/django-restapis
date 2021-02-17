@@ -1,7 +1,5 @@
 language: python
-
 cache: pip #Cache pip dir
-
 notifications:
   email: "${HEROKU_EMAIL}"
 
