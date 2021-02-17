@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/everythingisdata/restapis-django-basics.svg?branch=main)](https://travis-ci.com/everythingisdata/restapis-django-basics)
+
 # restapis-django-basics
 
 
