@@ -1,5 +1,5 @@
 from django.contrib import admin
-from profile_api import models
+from profileProj.profileApi import models
 
 admin.site.register(models.ProfileFeedItem)
 admin.site.register(models.UserProfile)

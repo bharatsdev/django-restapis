@@ -1,13 +1,22 @@
-FROM python:3.8-alpine
+FROM python:3.7-alpine
 
-MAINTAINER bharatmca@gmail.com
+MAINTAINER EveryThingIsData
 
-WORKDIR /app
+ENV PYTHONUNBUFFERED 1
 
-COPY requirements.txt app/requirements.txt
-RUN pip install -r app/requirements.txt
+COPY ./requirements.txt /requirements.txt
+
+RUN apk add --update --no-cache  postgresql-client jpeg-dev
+RUN apk add --update --no-cache --virtual ./temp-build-deps \
+    gcc libc-dev linux-headers postgresql-dev musl-dev zlib zlib-dev
+
+RUN pip install -r /requirements.txt
+
+RUN apk del ./temp-build-deps
 
 COPY . /app
+WORKDIR /app
 
-RUN adduser -D myuser
-USER myuser
+RUN adduser -D dockuser
+RUN chown dockuser:dockuser -R /app/
+USER dockuser

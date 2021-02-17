@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from profile_api import views
+from profileProj.profileApi import views
 
 router = DefaultRouter()
 # router.register('hello-viewset', views.HelloViewSets, basename='hello-viewset')

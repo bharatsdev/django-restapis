@@ -4,9 +4,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from profile_api import models
-from profile_api import serializers
-from profile_api import permissions
+from profileProj.profileApi import permissions, models, serializers
 from rest_framework import filters
 
 
