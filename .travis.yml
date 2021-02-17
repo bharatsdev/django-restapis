@@ -1,0 +1,28 @@
+language: python
+python:
+  - 3.8
+
+notifications:
+  email: ${HEROKU_EMAIL}
+
+services:
+  - docker
+
+before_install:
+  - pip install docker-compose
+
+script:
+  - docker-compose run --rm app sh -c "python manage.py makemigrations"
+  - docker-compose run --rm app sh -c "python manage.py migrate"
+  - docker-compose run --rm app sh -c "python manage.py showmigrations"
+  - docker-compose run --rm app sh -c "python manage.py test && flake8"
+
+deploy:
+  provider: heroku
+  cleanup: true
+  edge: true
+  api_key: ${HEROKU_API_KEY}
+  app: django-basics
+  on:
+    repo: everythingisdata/djanog-basics
+    all_branches: true
