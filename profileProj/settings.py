@@ -15,7 +15,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    'localhost'
+    'localhost',
+    'restapis-django-basics.herokuapp.com'
 ]
 
 # Application definition
