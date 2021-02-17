@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from profileProj.profileApi import models
+from profileApi import models
 
 
 class UserProfileSerializer(serializers.ModelSerializer):

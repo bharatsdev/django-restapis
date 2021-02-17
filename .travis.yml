@@ -1,7 +1,5 @@
 language: python
-
 cache: pip #Cache pip dir
-
 notifications:
   email: "${HEROKU_EMAIL}"
 
@@ -14,10 +12,10 @@ before_script:
   - pip install docker-compose
 # Run scripts
 script:
-  - docker-compose run app sh -c "python manage.py makemigrations"
-  - docker-compose run app sh -c "python manage.py migrate"
-  - docker-compose run app sh -c "python manage.py showmigrations"
-  - docker-compose run app sh -c "python manage.py test  && flake8  --ignore E501,F811"
+  - docker-compose run --rm app sh -c "python manage.py makemigrations"
+  - docker-compose run --rm  app sh -c "python manage.py migrate"
+  - docker-compose run --rm  app sh -c "python manage.py showmigrations"
+  - docker-compose run --rm  app sh -c "python manage.py test  && flake8  --ignore E501,F811"
 
 
 deploy:
