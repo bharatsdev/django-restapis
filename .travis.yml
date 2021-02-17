@@ -15,7 +15,7 @@ script:
 deploy:
   provider: heroku
   app: restapis-django-basics
-  api_key: ${HEROKU_API_KEY}
+  api_key: $HEROKU_API_KEY
   on:
     repo: everythingisdata/restapis-django-basics
     all_branches: true
