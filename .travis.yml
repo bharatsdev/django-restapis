@@ -12,7 +12,7 @@ before_install:
   - pip install docker-compose
 
 script:
-  - docker-compose run --rm app sh -c "python manage.py makemigrations"
+  - docker-compose run --rm app sh -c "python manage.py makemigrations profileApi"
   - docker-compose run --rm app sh -c "python manage.py migrate"
   - docker-compose run --rm app sh -c "python manage.py showmigrations"
   - docker-compose run --rm app sh -c "python manage.py test && flake8"
