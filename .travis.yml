@@ -11,13 +11,13 @@ before_script:
 script:
 - docker-compose run --rm app sh -c "python manage.py makemigrations"
 - docker-compose run --rm  app sh -c "python manage.py migrate"
-- docker-compose run --rm  app sh -c "python manage.py showmigrations"
+- docker-compose run --rm  app sh -c "python manage.py collectstatic --noinput"
 - docker-compose run --rm  app sh -c "python manage.py test  && flake8  --ignore E501,F811"
 deploy:
   provider: heroku
   app: restapis-django-basics
   api_key:
-    secure: UDCVCgb1bLfFPKAq7fHIQWRv/+cnvhBLAIPiCtwkKrilYyF2OBBtJkeeFBnBpGLujEQrWYc0Mk9vRlH5GC27LbuTN1hkH1P2m7y+YcKUk6ycmakBgd3UQoKxHMDvyhEBez06o5USv/Rzh97giB8P6YgXA4EYlkKGn0Qc1ykth5txLt8rrTPMjUIUxMKTFW+U7LXzSwtn/KWM7oidX79Ov04qPufBvMn7E9cm7M4xnjT0KQmC5Ph4irWXha3h0VTqqy8hWbxFx/TYRdROkqknGCYdzrJK/UZfwWuw5/GIMPPd03y3uG2C6vka55BT/QINryKRCGBSWThbQDNlbMI30VAcZ+ZCK10vxUpJ8V05IoKKSnrttSuM0PzO8V7jUmxuuo8oCvWl/qYC0NRkDePNm9o9P2lbulCNJN/BrCGtHZN4owxh1wYbG9PkUPNmfWAZ+Rm9LVeJmfRHwBqhP99m5OFCd51oQtOuzb9OCqMaW/vTpqBe1E4xzvd9Rx6eXREakrJ/F4Lbixop6FDUqqHOpkTgYFj8bYgAczzzHGXdIX+ZpkmQmZqfziKoCD1+CheT75mwUMAdmJuKcfHzfoRv5IkugiO2WNrr5cjf9zpxhcojs85pjo1ulFO9gUfij4+A73/UaEzkNVsOxyPpvFWNXegjwLR4V/iqIqbOg51pXw4=
+    secure: ${HEROKU_API_KEY}
   on:
     repo: everythingisdata/restapis-django-basics
     all_branches: true
