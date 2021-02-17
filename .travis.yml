@@ -1,7 +1,8 @@
 language: python
+
 python:
   - 3.8
-
+cache: pip
 notifications:
   email: ${HEROKU_EMAIL}
 
@@ -15,7 +16,7 @@ script:
   - docker-compose run --rm app sh -c "python manage.py makemigrations profileApi"
   - docker-compose run --rm app sh -c "python manage.py migrate"
   - docker-compose run --rm app sh -c "python manage.py showmigrations"
-  - docker-compose run --rm app sh -c "python manage.py test && flake8"
+  - docker-compose run --rm app sh -c "python manage.py test && flake8   --ignore E501,F811 "
 
 deploy:
   provider: heroku
